@@ -1,0 +1,46 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  .table {
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    .tr {
+    }
+    .th,
+    .td {
+      width: 200px;
+      height: 35px;
+      border: 1px solid lightgray;
+      padding: 8px 12px;
+    }
+    .th {
+      text-align: left;
+      color: darkgray;
+    }
+  }
+  .addBtnContainer {
+    margin-bottom: 12px;
+  }
+  .paginator {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 12px;
+    .btnLeft {
+      margin-right: 8px;
+    }
+    .btnRight {
+      margin-left: 8px;
+    }
+  }
+  .linkContainer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .btn {
+    padding: 8px 12px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

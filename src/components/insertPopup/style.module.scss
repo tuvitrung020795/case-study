@@ -1,0 +1,36 @@
+.root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .popup {
+    background-color: white;
+    padding: 16px 24px;
+    border-radius: 3px;
+    .title {
+      margin: 0 0 12px;
+      font-size: 1.1em;
+    }
+    .field {
+      margin-bottom: 8px;
+      .fieldName {
+        display: inline-block;
+        width: 70px;
+      }
+    }
+    .action {
+      .btn {
+        width: 100%;
+        padding: 8px 12px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
