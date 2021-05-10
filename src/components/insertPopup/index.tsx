@@ -13,16 +13,20 @@ export default function InsertPopup(props: {
   const [position, setPosition] = useState("");
 
   const insertEmployee = () => {
-    axios
-      .post(`${API_URL}/employee`, {
-        name: name,
-        email: email,
-        position: position,
-      })
-      .then(() => {
-        props.setVisible(false);
-        props.getData();
-      });
+    if (!name) {
+      alert("Name is required.");
+    } else {
+      axios
+        .post(`${API_URL}/employee`, {
+          name: name,
+          email: email,
+          position: position,
+        })
+        .then(() => {
+          props.setVisible(false);
+          props.getData();
+        });
+    }
   };
 
   return (

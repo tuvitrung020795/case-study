@@ -15,11 +15,14 @@ export default function PageTwo() {
 
   useEffect(() => {
     getData();
-  }, [currentPage]);
+  }, []);
 
-  const getData = () => {
+  const getData = (type?: string) => {
+    let goToPage = currentPage;
+    if (type === "previous") goToPage--;
+    if (type === "next") goToPage++;
     axios
-      .get(`${API_URL}/employee?page=${currentPage}&limit=${ROWS_PER_PAGE}`)
+      .get(`${API_URL}/employee?page=${goToPage}&limit=${ROWS_PER_PAGE}`)
       .then((res) => {
         if (res.data.length > 0) {
           setData(res.data);
@@ -28,19 +31,19 @@ export default function PageTwo() {
           } else {
             setIsReachEnd(false);
           }
+          setCurrentPage(goToPage);
         } else {
-          setCurrentPage(currentPage - 1);
           alert("No data.");
         }
       });
   };
 
   const handlePreviousPage = () => {
-    setCurrentPage(currentPage - 1);
+    getData("previous");
   };
 
   const handleNextPage = () => {
-    setCurrentPage(currentPage + 1);
+    getData("next");
   };
 
   const renderHeader = (): ReactNode => {
